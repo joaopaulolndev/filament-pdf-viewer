@@ -1,0 +1,69 @@
+{
+    "name": "joaopaulolndev/filament-pdf-viewer",
+    "description": "Filament package to show pdf document viewer",
+    "keywords": [
+        "joaopaulolndev",
+        "laravel",
+        "filament-pdf-viewer"
+    ],
+    "homepage": "https://github.com/joaopaulolndev/filament-pdf-viewer",
+    "support": {
+        "issues": "https://github.com/joaopaulolndev/filament-pdf-viewer/issues",
+        "source": "https://github.com/joaopaulolndev/filament-pdf-viewer"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "João Paulo Leite Nascimento",
+            "email": "joaopauloln7@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "filament/filament": "^3.0",
+        "spatie/laravel-package-tools": "^1.15.0"
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^7.9",
+        "orchestra/testbench": "^8.0",
+        "pestphp/pest": "^2.1",
+        "pestphp/pest-plugin-arch": "^2.0",
+        "pestphp/pest-plugin-laravel": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Joaopaulolndev\\FilamentPdfViewer\\": "src/",
+            "Joaopaulolndev\\FilamentPdfViewer\\Database\\Factories\\": "database/factories/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Joaopaulolndev\\FilamentPdfViewer\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Joaopaulolndev\\FilamentPdfViewer\\FilamentPdfViewerServiceProvider"
+            ],
+            "aliases": {
+                "FilamentPdfViewer": "Joaopaulolndev\\FilamentPdfViewer\\Facades\\FilamentPdfViewer"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
