@@ -1,9 +1,13 @@
-<span class="text-sm font-medium leading-6 text-gray-950 dark:text-white">
-    {{ $getLabel() }}
-</span>
-
-@if(!empty($getState()))
-    <iframe src="{{ $getRoute($getState()) }}" style="min-height: {{ $getMinHeight() }};min-width: {{ $getMinWidth() }}"></iframe>
-@elseif(!empty($getFileUrl()))
-    <iframe src="{{ $getFileUrl() }}" style="min-height: {{ $getMinHeight() }};min-width: {{ $getMinWidth() }}"></iframe>
-@endif
+<x-dynamic-component :component="$getEntryWrapperView()" :entry="$entry">
+    @if(!empty($getState()))
+        <iframe
+            class="w-full"
+            src="{{ $getRoute($getState()) }}" style="min-height: {{ $getMinHeight() }};">
+        </iframe>
+    @elseif(!empty($getFileUrl()))
+        <iframe
+            class="w-full"
+            src="{{ $getFileUrl() }}" style="min-height: {{ $getMinHeight() }};">
+        </iframe>
+    @endif
+</x-dynamic-component>
