@@ -19,7 +19,12 @@
         {{ $getLabel() }}
     </x-slot>
 
-    <x-filament::input.wrapper>
+    <x-filament::input.wrapper
+        :attributes="
+            \Filament\Support\prepare_inherited_attributes($getExtraAttributeBag())
+                ->class(['fi-fo-textarea overflow-hidden'])
+        "
+    >
         @if(!empty($getState()))
             <iframe
                 class="w-full"
