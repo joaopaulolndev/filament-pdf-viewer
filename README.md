@@ -5,9 +5,18 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/joaopaulolndev/filament-pdf-viewer/fix-php-code-styling.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/joaopaulolndev/filament-pdf-viewer/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/joaopaulolndev/filament-pdf-viewer.svg?style=flat-square)](https://packagist.org/packages/joaopaulolndev/filament-pdf-viewer)
 
+FilamentPHP package to show pdf documents with records saved in the database or show documents without a database.
+<div class="filament-hidden">
 
+![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-pdf-viewer/main/art/joaopaulolndev-filament-pdf-viewer.jpg)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+</div>
+
+## Features & Screenshots
+
+-   **Form Field:** Show a pdf document viewer in a form field.
+-   **Infolist Entry:** Show a pdf document viewer in a infolist entry.
+-   **Support**: [Laravel 11](https://laravel.com) and [Filament 3.x](https://filamentphp.com)
 
 ## Installation
 
@@ -17,38 +26,42 @@ You can install the package via composer:
 composer require joaopaulolndev/filament-pdf-viewer
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="filament-pdf-viewer-migrations"
-php artisan migrate
-```
-
-You can publish the config file with:
-
-```bash
-php artisan vendor:publish --tag="filament-pdf-viewer-config"
-```
-
 Optionally, you can publish the views using
 
 ```bash
 php artisan vendor:publish --tag="filament-pdf-viewer-views"
 ```
 
-This is the contents of the published config file:
+## Usage in form field
 
 ```php
-return [
-];
+use Joaopaulolndev\FilamentPdfViewer\Forms\Components\PdfViewerField;
+
+PdfViewerField::make('file')
+    ->label('View the PDF')
+    ->minHeight('40svh')
 ```
 
-## Usage
+## Usage in infolist entry
 
 ```php
-$filamentPdfViewer = new Joaopaulolndev\FilamentPdfViewer();
-echo $filamentPdfViewer->echoPhrase('Hello, Joaopaulolndev!');
+use Joaopaulolndev\FilamentPdfViewer\Infolists\Components\PdfViewerEntry;
+
+PdfViewerEntry::make('file')
+    ->label('View the PDF')
+    ->minHeight('40svh')
 ```
+
+Optionally, you can use anothe methods to set the pdf viewer
+
+```php
+
+PdfViewerField::make('file2')
+    ->label('View the PDF')
+    ->minHeight('40svh')
+    ->fileUrl(Storage::url('dummy.pdf')) // Set the file url if you are getting a pdf without database
+    ->columnSpanFull()
+```   
 
 ## Testing
 
@@ -71,6 +84,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## Credits
 
 - [João Paulo Leite Nascimento](https://github.com/joaopaulolndev)
+- [Rômulo Ramos](https://github.com/rmsramos)
 - [All Contributors](../../contributors)
 
 ## License
