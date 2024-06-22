@@ -11,8 +11,6 @@ class PdfViewerField extends ViewField
 
     protected string $minHeight = '50svh';
 
-    protected string $minWidth = '120svh';
-
     protected string $fileUrl = '';
 
     protected function setUp(): void
@@ -32,18 +30,6 @@ class PdfViewerField extends ViewField
     public function getMinHeight(): string
     {
         return $this->minHeight;
-    }
-
-    public function minWidth(string $minWidth): self
-    {
-        $this->minWidth = $minWidth;
-
-        return $this;
-    }
-
-    public function getMinWidth(): string
-    {
-        return $this->minWidth;
     }
 
     public function fileUrl(string $fileUrl): self

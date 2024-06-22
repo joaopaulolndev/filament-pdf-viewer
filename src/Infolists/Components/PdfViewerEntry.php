@@ -11,8 +11,6 @@ class PdfViewerEntry extends ViewEntry
 
     protected string $minHeight = '50svh';
 
-    protected string $minWidth = '120svh';
-
     protected string $fileUrl = '';
 
     public function minHeight(string $minHeight): self
@@ -27,18 +25,6 @@ class PdfViewerEntry extends ViewEntry
         return $this->minHeight;
     }
 
-    public function minWidth(string $minWidth): self
-    {
-        $this->minWidth = $minWidth;
-
-        return $this;
-    }
-
-    public function getMinWidth(): string
-    {
-        return $this->minWidth;
-    }
-
     public function fileUrl(string $fileUrl): self
     {
         $this->fileUrl = $fileUrl;
@@ -51,11 +37,6 @@ class PdfViewerEntry extends ViewEntry
         return $this->fileUrl;
     }
 
-    /**
-     * @param string $file
-     *
-     * @return null|string|void
-     */
     public function getRoute(string $file)
     {
         if (Storage::disk('public')->exists($file)) {
