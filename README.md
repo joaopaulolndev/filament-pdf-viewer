@@ -5,7 +5,7 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/joaopaulolndev/filament-pdf-viewer/fix-php-code-styling.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/joaopaulolndev/filament-pdf-viewer/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/joaopaulolndev/filament-pdf-viewer.svg?style=flat-square)](https://packagist.org/packages/joaopaulolndev/filament-pdf-viewer)
 
-FilamentPHP package to show pdf documents with records saved in the database or show documents without a database.
+FilamentPHP package to show pdf documents with records saved in the database or show documents without a database in the form of your resource.
 <div class="filament-hidden">
 
 ![Screenshot of Application Feature](https://raw.githubusercontent.com/joaopaulolndev/filament-pdf-viewer/main/art/joaopaulolndev-filament-pdf-viewer.jpg)
@@ -37,9 +37,15 @@ php artisan vendor:publish --tag="filament-pdf-viewer-views"
 ```php
 use Joaopaulolndev\FilamentPdfViewer\Forms\Components\PdfViewerField;
 
-PdfViewerField::make('file')
-    ->label('View the PDF')
-    ->minHeight('40svh')
+public static function form(Form $form): Form
+{
+    return $form
+        ->schema([
+            PdfViewerField::make('file')
+                ->label('View the PDF')
+                ->minHeight('40svh')
+        ]);
+}
 ```
 
 ## Usage in infolist entry
@@ -47,21 +53,57 @@ PdfViewerField::make('file')
 ```php
 use Joaopaulolndev\FilamentPdfViewer\Infolists\Components\PdfViewerEntry;
 
-PdfViewerEntry::make('file')
-    ->label('View the PDF')
-    ->minHeight('40svh')
+public static function infolist(Infolist $infolist): Infolist 
+{
+    return $infolist
+        ->schema([
+            PdfViewerEntry::make('file')
+                ->label('View the PDF')
+                ->minHeight('40svh')
+        ]);
+}
 ```
 
 Optionally, you can use anothe methods to set the pdf viewer
 
 ```php
+use Joaopaulolndev\FilamentPdfViewer\Infolists\Components\PdfViewerEntry;
 
-PdfViewerField::make('file2')
-    ->label('View the PDF')
-    ->minHeight('40svh')
-    ->fileUrl(Storage::url('dummy.pdf')) // Set the file url if you are getting a pdf without database
-    ->columnSpanFull()
-```   
+public static function infolist(Infolist $infolist): Infolist 
+{
+    return $infolist
+        ->schema([
+            PdfViewerEntry::make('file')
+                ->label('View the PDF')
+                ->minHeight('40svh')
+                ->fileUrl(Storage::url('dummy.pdf')) // Set the file url if you are getting a pdf without database
+                ->columnSpanFull()
+        ]);
+}
+``` 
+
+Optionally, you can use section to set the pdf viewer
+
+```php
+use Joaopaulolndev\FilamentPdfViewer\Infolists\Components\PdfViewerEntry;
+
+public static function infolist(Infolist $infolist): Infolist 
+{
+    return $infolist
+        ->schema([
+            \Filament\Infolists\Components\Section::make('PDF Viewer')
+            ->description('Prevent the PDF from being downloaded')
+            ->collapsible()
+            ->schema([
+                PdfViewerEntry::make('file')
+                    ->label('View the PDF')
+                    ->minHeight('40svh')
+                    ->fileUrl(Storage::url('dummy.pdf')) // Set the file url if you are getting a pdf without database
+                    ->columnSpanFull()
+            ]);        
+        ]);
+}
+``` 
 
 ## Testing
 
