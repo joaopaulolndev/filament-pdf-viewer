@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/joaopaulolndev/filament-pdf-viewer.svg?style=flat-square)](https://packagist.org/packages/joaopaulolndev/filament-pdf-viewer)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/joaopaulolndev/filament-pdf-viewer/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/joaopaulolndev/filament-pdf-viewer/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/joaopaulolndev/filament-pdf-viewer/fix-php-code-styling.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/joaopaulolndev/filament-pdf-viewer/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/joaopaulolndev/filament-pdf-viewer/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/joaopaulolndev/filament-pdf-viewer/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/joaopaulolndev/filament-pdf-viewer.svg?style=flat-square)](https://packagist.org/packages/joaopaulolndev/filament-pdf-viewer)
 
 FilamentPHP package to show pdf documents with records saved in the database or show documents without a database in the form of your resource.
