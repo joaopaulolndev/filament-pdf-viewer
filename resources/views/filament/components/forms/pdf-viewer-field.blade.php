@@ -31,7 +31,6 @@
                 src="{{ $getRoute(current($getState())) }}" style="min-height: {{ $getMinHeight() }};">
             </iframe>
         @elseif(!empty($getFileUrl()))
-            @ds($getFileUrl())
             <iframe
                 class="w-full"
                 src="{{ $getFileUrl() }}" style="min-height: {{ $getMinHeight() }};">
