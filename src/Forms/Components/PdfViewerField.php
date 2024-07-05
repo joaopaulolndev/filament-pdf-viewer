@@ -2,6 +2,7 @@
 
 namespace Joaopaulolndev\FilamentPdfViewer\Forms\Components;
 
+use Closure;
 use Filament\Forms\Components\ViewField;
 use Illuminate\Support\Facades\Storage;
 
@@ -11,7 +12,7 @@ class PdfViewerField extends ViewField
 
     protected string $minHeight = '50svh';
 
-    protected string $fileUrl = '';
+    protected string | Closure $fileUrl = '';
 
     protected function setUp(): void
     {
@@ -32,7 +33,7 @@ class PdfViewerField extends ViewField
         return $this->minHeight;
     }
 
-    public function fileUrl(string $fileUrl): self
+    public function fileUrl(string | Closure $fileUrl): self
     {
         $this->fileUrl = $fileUrl;
 
@@ -41,7 +42,7 @@ class PdfViewerField extends ViewField
 
     public function getFileUrl(): string
     {
-        return $this->fileUrl;
+        return $this->evaluate($this->fileUrl);
     }
 
     /**
