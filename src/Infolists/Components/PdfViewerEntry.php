@@ -2,9 +2,9 @@
 
 namespace Joaopaulolndev\FilamentPdfViewer\Infolists\Components;
 
-use Filament\Infolists\Components\ViewEntry;
-use Illuminate\Support\Facades\Storage;
 use Closure;
+use Illuminate\Support\Facades\Storage;
+use Filament\Infolists\Components\ViewEntry;
 
 class PdfViewerEntry extends ViewEntry
 {
