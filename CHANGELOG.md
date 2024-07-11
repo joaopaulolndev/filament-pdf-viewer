@@ -2,6 +2,19 @@
 
 All notable changes to `filament-pdf-viewer` will be documented in this file.
 
+## v1.0.2 - 2024-07-11
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/joaopaulolndev/filament-pdf-viewer/pull/6
+* Allow closure in setting the file url in infolists entry. by @SalehHub in https://github.com/joaopaulolndev/filament-pdf-viewer/pull/5
+
+### New Contributors
+
+* @SalehHub made their first contribution in https://github.com/joaopaulolndev/filament-pdf-viewer/pull/5
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-pdf-viewer/compare/v1.0.1...v1.0.2
+
 ## v1.0.1 - 2024-07-05
 
 ### What's Changed
