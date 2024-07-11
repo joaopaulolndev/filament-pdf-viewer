@@ -2,8 +2,9 @@
 
 namespace Joaopaulolndev\FilamentPdfViewer\Infolists\Components;
 
-use Filament\Infolists\Components\ViewEntry;
+use Closure;
 use Illuminate\Support\Facades\Storage;
+use Filament\Infolists\Components\ViewEntry;
 
 class PdfViewerEntry extends ViewEntry
 {
@@ -11,8 +12,8 @@ class PdfViewerEntry extends ViewEntry
 
     protected string $minHeight = '50svh';
 
-    protected string $fileUrl = '';
-
+    protected string | Closure $fileUrl = '';
+    
     public function minHeight(string $minHeight): self
     {
         $this->minHeight = $minHeight;
@@ -25,7 +26,7 @@ class PdfViewerEntry extends ViewEntry
         return $this->minHeight;
     }
 
-    public function fileUrl(string $fileUrl): self
+    public function fileUrl(string | Closure $fileUrl): self    
     {
         $this->fileUrl = $fileUrl;
 
@@ -34,7 +35,7 @@ class PdfViewerEntry extends ViewEntry
 
     public function getFileUrl(): string
     {
-        return $this->fileUrl;
+        return $this->evaluate($this->fileUrl);
     }
 
     public function getRoute(string $file)
