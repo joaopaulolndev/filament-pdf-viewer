@@ -2,6 +2,18 @@
 
 All notable changes to `filament-pdf-viewer` will be documented in this file.
 
+## v1.0.3 - 2024-09-05
+
+### What's Changed
+
+* Improve file url handler by @a21ns1g4ts in https://github.com/joaopaulolndev/filament-pdf-viewer/pull/8
+
+### New Contributors
+
+* @a21ns1g4ts made their first contribution in https://github.com/joaopaulolndev/filament-pdf-viewer/pull/8
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-pdf-viewer/compare/v1.0.2...v1.0.3
+
 ## v1.0.2 - 2024-07-11
 
 ### What's Changed
