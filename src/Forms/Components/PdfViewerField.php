@@ -4,12 +4,11 @@ namespace Joaopaulolndev\FilamentPdfViewer\Forms\Components;
 
 use Closure;
 use Filament\Forms\Components\ViewField;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Filesystem\FilesystemAdapter;
+use Illuminate\Support\Facades\Storage;
 use League\Flysystem\UnableToCheckFileExistence;
 use Throwable;
-
 
 class PdfViewerField extends ViewField
 {
@@ -70,8 +69,8 @@ class PdfViewerField extends ViewField
 
     public function getFileUrl(?string $state = null): string
     {
-        if (! $state) {
-            return '';
+        if (empty($state)) {
+            return $this->evaluate($this->fileUrl);
         }
 
         if ((filter_var($state, FILTER_VALIDATE_URL) !== false) || str($state)->startsWith('data:')) {

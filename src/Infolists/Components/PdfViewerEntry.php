@@ -55,8 +55,8 @@ class PdfViewerEntry extends ViewEntry
 
     public function getFileUrl(?string $state = null): string
     {
-        if (! $state) {
-            return '';
+        if (empty($state)) {
+            return $this->evaluate($this->fileUrl);
         }
 
         if ((filter_var($state, FILTER_VALIDATE_URL) !== false) || str($state)->startsWith('data:')) {
