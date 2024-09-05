@@ -2,6 +2,10 @@
 
 All notable changes to `filament-pdf-viewer` will be documented in this file.
 
+## v1.0.5 - 2024-09-05
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-pdf-viewer/compare/v1.0.4...v1.0.5
+
 ## v1.0.4 - 2024-09-05
 
 **Full Changelog**: https://github.com/joaopaulolndev/filament-pdf-viewer/compare/v1.0.3...v1.0.4
