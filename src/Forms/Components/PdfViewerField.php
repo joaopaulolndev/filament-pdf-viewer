@@ -67,41 +67,54 @@ class PdfViewerField extends ViewField
         return $this->evaluate($this->disk) ?? config('filament.default_filesystem_disk');
     }
 
-    public function getFileUrl(?string $state = null): string
+    public function getFileUrl(array|string|null $state = null): array|string|null
     {
+        // Handle empty state
         if (empty($state)) {
-            return $this->evaluate($this->fileUrl);
+            return is_array($this->fileUrl) ? array_map([$this, 'evaluate'], $this->fileUrl) : $this->evaluate($this->fileUrl);
         }
 
-        if ((filter_var($state, FILTER_VALIDATE_URL) !== false) || str($state)->startsWith('data:')) {
-            return $state;
-        }
+        // Convert single string to array for uniform processing
+        $states = is_array($state) ? $state : [$state];
 
-        /** @var FilesystemAdapter $storage */
-        $storage = $this->getDisk();
+        $urls = [];
 
-        if ($this->shouldCheckFileExistence()) {
-            try {
-                if (! $storage->exists($state)) {
-                    return null;
+        foreach ($states as $singleState) {
+            // Validate URL or data URL
+            if ((filter_var($singleState, FILTER_VALIDATE_URL) !== false) || str($singleState)->startsWith('data:')) {
+                $urls[] = $singleState;
+                continue;
+            }
+
+            /** @var FilesystemAdapter $storage */
+            $storage = $this->getDisk();
+
+            if ($this->shouldCheckFileExistence()) {
+                try {
+                    if (! $storage->exists($singleState)) {
+                        continue;
+                    }
+                } catch (UnableToCheckFileExistence $exception) {
+                    continue;
                 }
-            } catch (UnableToCheckFileExistence $exception) {
-                return null;
+            }
+
+            if ($this->getVisibility() === 'private') {
+                try {
+                    $urls[] = $storage->temporaryUrl(
+                        $singleState,
+                        now()->addMinutes(60),
+                    );
+                } catch (Throwable $exception) {
+                    // Handle exception gracefully (e.g., log it)
+                }
+            } else {
+                $urls[] = $storage->url($singleState);
             }
         }
 
-        if ($this->getVisibility() === 'private') {
-            try {
-                return $storage->temporaryUrl(
-                    $state,
-                    now()->addMinutes(60),
-                );
-            } catch (Throwable $exception) {
-                // This driver does not support creating temporary URLs.
-            }
-        }
-
-        return $storage->url($state);
+        // Return the array of URLs if multiple, or the first URL if only one
+        return count($urls) === 1 ? $urls[0] : $urls;
     }
 
     public function getVisibility(): string
