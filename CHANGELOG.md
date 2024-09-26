@@ -2,6 +2,18 @@
 
 All notable changes to `filament-pdf-viewer` will be documented in this file.
 
+## v1.0.6 - 2024-09-26
+
+### What's Changed
+
+* Update PdfViewerEntry.php by @kmoconnect in https://github.com/joaopaulolndev/filament-pdf-viewer/pull/9
+
+### New Contributors
+
+* @kmoconnect made their first contribution in https://github.com/joaopaulolndev/filament-pdf-viewer/pull/9
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-pdf-viewer/compare/v1.0.5...v1.0.6
+
 ## v1.0.5 - 2024-09-05
 
 **Full Changelog**: https://github.com/joaopaulolndev/filament-pdf-viewer/compare/v1.0.4...v1.0.5
