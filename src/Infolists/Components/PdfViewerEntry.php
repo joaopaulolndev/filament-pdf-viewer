@@ -53,7 +53,7 @@ class PdfViewerEntry extends ViewEntry
         return $this;
     }
 
-    public function getFileUrl(?string $state = null): string
+    public function getFileUrl(?string $state = null): string|null
     {
         if (empty($state)) {
             return $this->evaluate($this->fileUrl);
