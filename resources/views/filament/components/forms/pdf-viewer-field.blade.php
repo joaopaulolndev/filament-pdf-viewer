@@ -3,6 +3,7 @@
 
     $hasInlineLabel = $hasInlineLabel();
     $statePath = $getStatePath();
+    $fileUrls = $getFileUrl($getState());
 @endphp
 
 <x-dynamic-component
@@ -13,7 +14,7 @@
     <x-slot
         name="label"
         @class([
-            'sm:pt-1.5' => $hasInlineLabel,
+            'sm:mt-1.5' => $hasInlineLabel,
         ])
     >
         {{ $getLabel() }}
@@ -22,18 +23,20 @@
     <x-filament::input.wrapper
         :attributes="
             \Filament\Support\prepare_inherited_attributes($getExtraAttributeBag())
-                ->class(['fi-fo-textarea overflow-hidden'])
+                ->class(['fi-fo-textarea overflow-hidden bg-transparent'])
         "
     >
-        @if(!empty($getState()))
+        @if (is_array($fileUrls))
+            @foreach($fileUrls as $fileUrl)
+                <iframe
+                    class="w-full"
+                src="{{ $fileUrl }}" style="min-height: {{ $getMinHeight() }};">
+                </iframe>
+            @endforeach
+        @elseif($fileUrls)
             <iframe
                 class="w-full"
-                src="{{ $getRoute(current($getState())) }}" style="min-height: {{ $getMinHeight() }};">
-            </iframe>
-        @elseif(!empty($getFileUrl()))
-            <iframe
-                class="w-full"
-                src="{{ $getFileUrl() }}" style="min-height: {{ $getMinHeight() }};">
+                src="{{ $fileUrls }}" style="min-height: {{ $getMinHeight() }};">
             </iframe>
         @endif
     </x-filament::input.wrapper>
