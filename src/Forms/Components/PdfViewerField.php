@@ -68,9 +68,12 @@ class PdfViewerField extends ViewField
     }
 
     public function getFileUrl(?string $state = null): string
+    public function getFileUrl(?string $state = null): string
+    {
     {
         if (empty($state)) {
-            return $this->evaluate($this->fileUrl);
+            return $this->evaluate($this->fileUrl) ?: '';
+        if (empty($state)) {
         }
 
         if ((filter_var($state, FILTER_VALIDATE_URL) !== false) || str($state)->startsWith('data:')) {
@@ -83,11 +86,11 @@ class PdfViewerField extends ViewField
         if ($this->shouldCheckFileExistence()) {
             try {
                 if (! $storage->exists($state)) {
+                    return '';
                     return null;
-                }
             } catch (UnableToCheckFileExistence $exception) {
+                return '';
                 return null;
-            }
         }
 
         if ($this->getVisibility() === 'private') {
@@ -101,8 +104,8 @@ class PdfViewerField extends ViewField
             }
         }
 
+        return $storage->url($state) ?: '';
         return $storage->url($state);
-    }
 
     public function getVisibility(): string
     {
