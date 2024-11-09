@@ -25,13 +25,13 @@
                 ->class(['fi-fo-textarea overflow-hidden'])
         "
     >
+        @if(!empty($getState()) && $getRoute(current($getState())))
         @if(!empty($getState()))
-            <iframe
                 class="w-full"
                 src="{{ $getRoute(current($getState())) }}" style="min-height: {{ $getMinHeight() }};">
             </iframe>
+        @elseif(!empty($getFileUrl()) && $getFileUrl() !== '')
         @elseif(!empty($getFileUrl()))
-            <iframe
                 class="w-full"
                 src="{{ $getFileUrl() }}" style="min-height: {{ $getMinHeight() }};">
             </iframe>
