@@ -67,7 +67,7 @@ class PdfViewerField extends ViewField
         return $this->evaluate($this->disk) ?? config('filament.default_filesystem_disk');
     }
 
-    public function getFileUrl(?string $state = null): string
+    public function getFileUrl(?string $state = null): ?string
     {
         if (empty($state)) {
             return $this->evaluate($this->fileUrl);
