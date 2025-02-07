@@ -2,6 +2,19 @@
 
 All notable changes to `filament-pdf-viewer` will be documented in this file.
 
+## v1.0.7 - 2025-02-07
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot in https://github.com/joaopaulolndev/filament-pdf-viewer/pull/15
+* Fix #12 : fix wrong return type by @CharlieEtienne in https://github.com/joaopaulolndev/filament-pdf-viewer/pull/18
+
+### New Contributors
+
+* @CharlieEtienne made their first contribution in https://github.com/joaopaulolndev/filament-pdf-viewer/pull/18
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-pdf-viewer/compare/v1.0.6...v1.0.7
+
 ## v1.0.6 - 2024-09-26
 
 ### What's Changed
