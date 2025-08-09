@@ -59,10 +59,7 @@
         "laravel": {
             "providers": [
                 "Joaopaulolndev\\FilamentPdfViewer\\FilamentPdfViewerServiceProvider"
-            ],
-            "aliases": {
-                "FilamentPdfViewer": "Joaopaulolndev\\FilamentPdfViewer\\Facades\\FilamentPdfViewer"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",
