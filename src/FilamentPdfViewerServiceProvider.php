@@ -2,12 +2,9 @@
 
 namespace Joaopaulolndev\FilamentPdfViewer;
 
-use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Joaopaulolndev\FilamentPdfViewer\Commands\FilamentPdfViewerCommand;
-use Joaopaulolndev\FilamentPdfViewer\Testing\TestsFilamentPdfViewer;
 
 class FilamentPdfViewerServiceProvider extends PackageServiceProvider
 {
@@ -23,51 +20,12 @@ class FilamentPdfViewerServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package->name(static::$name)
-            ->hasCommands($this->getCommands())
             ->hasInstallCommand(function (InstallCommand $command) {
-                $command
-                    ->publishConfigFile()
-                    ->askToRunMigrations()
-                    ->askToStarRepoOnGitHub('joaopaulolndev/filament-pdf-viewer');
+                $command->askToStarRepoOnGitHub('joaopaulolndev/filament-pdf-viewer');
             });
-
-        $configFileName = $package->shortName();
-
-        if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
-            $package->hasConfigFile();
-        }
-
-        if (file_exists($package->basePath('/../resources/lang'))) {
-            $package->hasTranslations();
-        }
 
         if (file_exists($package->basePath('/../resources/views'))) {
             $package->hasViews(static::$viewNamespace);
         }
-    }
-
-    public function packageRegistered(): void
-    {
-    }
-
-    public function packageBooted(): void
-    {
-        // Testing
-        Testable::mixin(new TestsFilamentPdfViewer());
-    }
-
-    protected function getAssetPackageName(): ?string
-    {
-        return 'joaopaulolndev/filament-pdf-viewer';
-    }
-
-    /**
-     * @return array<class-string>
-     */
-    protected function getCommands(): array
-    {
-        return [
-            FilamentPdfViewerCommand::class,
-        ];
     }
 }
