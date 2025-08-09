@@ -22,19 +22,21 @@
     <x-filament::input.wrapper
         :attributes="
             \Filament\Support\prepare_inherited_attributes($getExtraAttributeBag())
-                ->class(['fi-fo-textarea overflow-hidden'])
+                ->class(['fi-fo-textarea fi-sc-flex'])
         "
     >
-        @if(!empty($getState()))
-            <iframe
-                class="w-full"
-                src="{{ $getRoute(current($getState())) }}" style="min-height: {{ $getMinHeight() }};">
-            </iframe>
-        @elseif(!empty($getFileUrl()))
-            <iframe
-                class="w-full"
-                src="{{ $getFileUrl() }}" style="min-height: {{ $getMinHeight() }};">
-            </iframe>
-        @endif
+        <div class="fi-sc-flex">
+            @if(!empty($getState()))
+                <iframe
+                    class="fi-growable"
+                    src="{{ $getRoute(current($getState())) }}" style="min-height: {{ $getMinHeight() }};">
+                </iframe>
+            @elseif(!empty($getFileUrl()))
+                <iframe
+                    class="fi-growable"
+                    src="{{ $getFileUrl() }}" style="min-height: {{ $getMinHeight() }};">
+                </iframe>
+            @endif
+        </div>
     </x-filament::input.wrapper>
 </x-dynamic-component>
