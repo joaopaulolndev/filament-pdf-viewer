@@ -69,9 +69,9 @@ Optionally, you can use anothe methods to set the pdf viewer
 ```php
 use Joaopaulolndev\FilamentPdfViewer\Infolists\Components\PdfViewerEntry;
 
-public static function infolist(Infolist $infolist): Infolist 
+public static function infolist(Schema $schema): Schema 
 {
-    return $infolist
+    return $schema
         ->schema([
             PdfViewerEntry::make('file')
                 ->label('View the PDF')
@@ -87,20 +87,20 @@ Optionally, you can use section to set the pdf viewer
 ```php
 use Joaopaulolndev\FilamentPdfViewer\Infolists\Components\PdfViewerEntry;
 
-public static function infolist(Infolist $infolist): Infolist 
+public static function infolist(Schema $schema): Schema 
 {
-    return $infolist
+    return $schema
         ->schema([
-            \Filament\Infolists\Components\Section::make('PDF Viewer')
-            ->description('Prevent the PDF from being downloaded')
-            ->collapsible()
-            ->schema([
-                PdfViewerEntry::make('file')
-                    ->label('View the PDF')
-                    ->minHeight('40svh')
-                    ->fileUrl(Storage::url('dummy.pdf')) // Set the file url if you are getting a pdf without database
-                    ->columnSpanFull()
-            ]);        
+            Section::make('PDF Viewer')
+                ->description('Prevent the PDF from being downloaded')
+                ->collapsible()
+                ->schema([
+                    PdfViewerEntry::make('file')
+                        ->label('View the PDF')
+                        ->minHeight('40svh')
+                        ->fileUrl(Storage::url('dummy.pdf')) // Set the file url if you are getting a pdf without database
+                        ->columnSpanFull()
+                ]);        
         ]);
 }
 ``` 
