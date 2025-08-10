@@ -18,6 +18,13 @@ FilamentPHP package to show pdf documents with records saved in the database or 
 -   **Infolist Entry:** Show a pdf document viewer in a infolist entry.
 -   **Support**: [Laravel 11](https://laravel.com) and [Filament 3.x](https://filamentphp.com)
 
+## Compatibility
+
+| Package Version | Filament Version |
+|-----------------|------------------|
+| 1.x             | 3.x              |
+| 2.x             | 4.x              |
+
 ## Installation
 
 You can install the package via composer:
