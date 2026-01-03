@@ -2,6 +2,21 @@
 
 All notable changes to `filament-pdf-viewer` will be documented in this file.
 
+## v1.1.0 - 2026-01-03
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot[bot] in https://github.com/joaopaulolndev/filament-pdf-viewer/pull/21
+* Bump stefanzweifel/git-auto-commit-action from 5 to 6 by @dependabot[bot] in https://github.com/joaopaulolndev/filament-pdf-viewer/pull/22
+* Addition of Disk & Visibility methods to PDFViewerEntry by @jny986 in https://github.com/joaopaulolndev/filament-pdf-viewer/pull/20
+* refactor(pdf-viewer): remove unused assets, commands, and plugins by @jeffersongoncalves in https://github.com/joaopaulolndev/filament-pdf-viewer/pull/30
+
+### New Contributors
+
+* @jny986 made their first contribution in https://github.com/joaopaulolndev/filament-pdf-viewer/pull/20
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-pdf-viewer/compare/v1.0.7...v1.1.0
+
 ## v1.0.7 - 2025-02-07
 
 ### What's Changed
