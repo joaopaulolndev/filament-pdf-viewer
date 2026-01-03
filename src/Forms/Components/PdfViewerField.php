@@ -16,13 +16,13 @@ class PdfViewerField extends ViewField
 
     protected string $minHeight = '50svh';
 
-    protected string|Closure $fileUrl = '';
+    protected string | Closure $fileUrl = '';
 
-    protected string|Closure|null $disk = null;
+    protected string | Closure | null $disk = null;
 
-    protected string|Closure $visibility = 'public';
+    protected string | Closure $visibility = 'public';
 
-    protected bool|Closure $shouldCheckFileExistence = true;
+    protected bool | Closure $shouldCheckFileExistence = true;
 
     protected function setUp(): void
     {
@@ -43,16 +43,16 @@ class PdfViewerField extends ViewField
         return $this->minHeight;
     }
 
-    public function fileUrl(string|Closure $fileUrl): self
+    public function fileUrl(string | Closure $fileUrl): self
     {
         $this->fileUrl = $fileUrl;
 
         return $this;
     }
 
-    public function visibility(string|Closure $visibility): static
+    public function disk(string | closure $disk): self
     {
-        $this->visibility = $visibility;
+        $this->disk = $disk;
 
         return $this;
     }
@@ -104,12 +104,19 @@ class PdfViewerField extends ViewField
         return $storage->url($state);
     }
 
+    public function visibility(string | Closure $visibility): static
+    {
+        $this->visibility = $visibility;
+
+        return $this;
+    }
+
     public function getVisibility(): string
     {
         return $this->evaluate($this->visibility);
     }
 
-    public function checkFileExistence(bool|Closure $condition = true): static
+    public function checkFileExistence(bool | Closure $condition = true): static
     {
         $this->shouldCheckFileExistence = $condition;
 
