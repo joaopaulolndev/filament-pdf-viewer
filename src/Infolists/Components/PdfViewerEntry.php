@@ -36,6 +36,13 @@ class PdfViewerEntry extends ViewEntry
         return $this->minHeight;
     }
 
+    public function disk(string|closure $disk): self
+    {
+        $this->disk = $disk;
+
+        return $this;
+    }
+
     public function getDisk(): Filesystem
     {
         return Storage::disk($this->getDiskName());
@@ -90,10 +97,12 @@ class PdfViewerEntry extends ViewEntry
         return $storage->url($state);
     }
 
-    // public function getFileUrl(): string
-    // {
-    //     return $this->evaluate($this->fileUrl);
-    // }
+    public function visibility(string|closure $visibility): self
+    {
+        $this->visibility = $visibility;
+
+        return $this;
+    }
 
     public function getVisibility(): string
     {
