@@ -2,6 +2,18 @@
 
 All notable changes to `filament-pdf-viewer` will be documented in this file.
 
+## v2.1.0 - 2026-01-03
+
+### What's Changed
+
+* Bump actions/checkout from 4 to 5 by @dependabot[bot] in https://github.com/joaopaulolndev/filament-pdf-viewer/pull/26
+* Bump stefanzweifel/git-auto-commit-action from 5 to 6 by @dependabot[bot] in https://github.com/joaopaulolndev/filament-pdf-viewer/pull/25
+* Bump stefanzweifel/git-auto-commit-action from 6 to 7 by @dependabot[bot] in https://github.com/joaopaulolndev/filament-pdf-viewer/pull/27
+* Bump actions/checkout from 5 to 6 by @dependabot[bot] in https://github.com/joaopaulolndev/filament-pdf-viewer/pull/28
+* Refactor PDF viewer components for consistency and efficiency by @jeffersongoncalves in https://github.com/joaopaulolndev/filament-pdf-viewer/pull/31
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-pdf-viewer/compare/v2.0.0...v2.1.0
+
 ## v2.0.0 - 2025-08-09
 
 ### What's Changed
