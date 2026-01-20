@@ -16,7 +16,7 @@ FilamentPHP package to show pdf documents with records saved in the database or 
 
 -   **Form Field:** Show a pdf document viewer in a form field.
 -   **Infolist Entry:** Show a pdf document viewer in a infolist entry.
--   **Support**: [Laravel 11](https://laravel.com) and [Filament 4.x](https://filamentphp.com)
+-   **Support**: [Laravel 11](https://laravel.com) and [Filament 5.x](https://filamentphp.com)
 
 ## Compatibility
 
@@ -24,13 +24,14 @@ FilamentPHP package to show pdf documents with records saved in the database or 
 |-----------------|------------------|
 | 1.x             | 3.x              |
 | 2.x             | 4.x              |
+| 3.x             | 5.x              |
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require joaopaulolndev/filament-pdf-viewer:^2.0
+composer require joaopaulolndev/filament-pdf-viewer:^3.0
 ```
 
 Optionally, you can publish the views using
