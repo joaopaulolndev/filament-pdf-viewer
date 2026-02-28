@@ -2,6 +2,18 @@
 
 All notable changes to `filament-pdf-viewer` will be documented in this file.
 
+## v1.1.1 - 2026-02-28
+
+### What's Changed
+
+#### Bug Fixes
+
+- **fix(infolist):** Handle array state in PdfViewerEntry to prevent 403 Forbidden (#29)
+
+The infolist template passed the raw state to `getRoute()` without handling the case where state is an array, causing `getFileUrl()` to fail and generate invalid URLs resulting in 403 errors.
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-pdf-viewer/compare/v1.1.0...v1.1.1
+
 ## v1.1.0 - 2026-01-03
 
 ### What's Changed
