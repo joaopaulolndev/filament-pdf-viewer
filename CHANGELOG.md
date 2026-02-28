@@ -2,6 +2,18 @@
 
 All notable changes to `filament-pdf-viewer` will be documented in this file.
 
+## v2.1.2 - 2026-02-28
+
+### What's Changed
+
+#### Bug Fixes
+
+- **fix(form):** Handle string state in PdfViewerField to prevent `current()` type error (#14)
+
+The form template called `current()` on `$getState()` without checking if it is an array, causing a TypeError when state is a plain string.
+
+**Full Changelog**: https://github.com/joaopaulolndev/filament-pdf-viewer/compare/v2.1.1...v2.1.2
+
 ## v2.1.1 - 2026-02-28
 
 ### What's Changed
