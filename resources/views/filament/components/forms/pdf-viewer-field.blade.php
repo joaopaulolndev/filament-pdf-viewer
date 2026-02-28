@@ -12,7 +12,7 @@
         :attributes="prepare_inherited_attributes($getExtraAttributeBag())->class(['fi-fo-textarea fi-sc-flex'])">
         <div class="fi-sc-flex">
             @if(!empty($getState()))
-                <iframe class="fi-growable" src="{{ $getRoute(current($getState())) }}"
+                <iframe class="fi-growable" src="{{ $getRoute(is_array($getState()) ? current($getState()) : $getState()) }}"
                         style="min-height: {{ $getMinHeight() }};"></iframe>
             @elseif(!empty($getFileUrl()))
                 <iframe class="fi-growable" src="{{ $getFileUrl() }}"
